@@ -11,18 +11,18 @@ public class Logging {
     long time;
 
     @Pointcut("execution(* *.sort(..))")
-    private void selectAlgoritem(){}
-
+    private void selectAlgoritem() {
+    }
 
     @Before("selectAlgoritem()")
     public void before(JoinPoint jp) {
-        Integer[] tmp= (Integer[]) jp.getArgs()[0];
-        System.out.println("Running sort in " +jp.getThis().getClass().getName()+" with array size "+tmp.length );
-        time= System.currentTimeMillis();
+        Integer[] tmp = (Integer[]) jp.getArgs()[0];
+        System.out.println("Running sort in " + jp.getThis().getClass().getName() + " with array size " + tmp.length);
+        time = System.currentTimeMillis();
     }
 
     @After("selectAlgoritem()")
     public void after(JoinPoint jp) {
-        System.out.println("Function sort in " +jp.getThis().getClass().getName()+" took "+(System.currentTimeMillis()-time+" ms") );
+        System.out.println("Function sort in " + jp.getThis().getClass().getName() + " took " + (System.currentTimeMillis() - time + " ms"));
     }
 }

@@ -1,5 +1,8 @@
 package sorting;
 
+import javax.enterprise.inject.Alternative;
+
+@Alternative
 public class InsertionSort implements SortingAlgorithm {
     public void sort(Comparable[] array) {
         for (int i = 1; i<array.length; i++){
